@@ -5,6 +5,7 @@ Use SuiteScript 1.0 to capture multiple payments and display the remainder on ea
 Use **remainingBalance.js** to upload into Netsuite and deploy on vendor bills for all roles 
 
 ## Resources
+* [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 * [API Overview](https://netsuite.custhelp.com/app/answers/detail/a_id/29241/kw/suitescript%201.0)
 * [API Reference (Suite Coder)](https://github.com/d3/d3/wiki)
 * [Record Broswer](https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_2/script/record/account.html)<a><img src="https://system.netsuite.com/images/logos/netsuite-reskin.png" align="right" hspace="5" vspace="2"></a>
@@ -31,7 +32,11 @@ If the user context is "create" and null values are not checked the script will 
 
 #### Line Item Logic 
 ```js
-
+for(var i=1; i<lineItemCount+1; i++){
+		var type = record.getLineItemValue('links', 'type', i);
+		nlapiLogExecution('DEBUG', 'type', type);
+		//console.log(type)
+  }
 ```
 
 ## Installing
