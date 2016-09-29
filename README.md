@@ -26,7 +26,8 @@ function calculateTotal(){
 
 calculateTotal();  // undefined
 ```
-This function requires a record ID and will throw errors if null values are not handled. 
+Certain API's require a record ID to iniate -- this means the a record  would have to have been created to function properlly. 
+If the user context is "create" and null values are not checked the script will error: 
 ```js
 function calculateTotal(){
 	var record = nlapiLoadRecord(nlapiGetRecordType(), nlapiGetRecordId());
