@@ -18,7 +18,18 @@ Function call and setup:
 ```javascript
 function calculateTotal(){
 	if(nlapiGetRecordId() != null){
-}
+   }
+ }
+
+calculateTotal();  //undefined
+```
+This function requires a record ID and will throw errors if null values are not handled. 
+```js
+function calculateTotal(){
+ return; 
+ }
+ 
+calculateTotal(); // 	SSS_MISSING_REQD_ARGUMENT : id 
 ```
 ## Installing
 If logged in Netsuite as Admin, navigate to <b>Customizations>Scripting>Scripts:New</b>. Click the plus sign to upload and name your .js file (remainingBalance) then create a User Event type Script record. 
