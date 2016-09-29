@@ -18,15 +18,20 @@ Function call and setup:
 ```javascript
 function calculateTotal(){
 	if(nlapiGetRecordId() != null){
+	var record = nlapiLoadRecord(nlapiGetRecordType(), nlapiGetRecordId());
+	var lineItemCount = record.getLineItemCount('links'); 
+	console.log (lineItemCount);
    }
  }
 
-calculateTotal();  //undefined
+calculateTotal();  // undefined
 ```
 This function requires a record ID and will throw errors if null values are not handled. 
 ```js
 function calculateTotal(){
- return; 
+	var record = nlapiLoadRecord(nlapiGetRecordType(), nlapiGetRecordId());
+	var lineItemCount = record.getLineItemCount('links'); 
+	console.log (lineItemCount);
  }
  
 calculateTotal(); // 	SSS_MISSING_REQD_ARGUMENT : id 
