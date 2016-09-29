@@ -16,21 +16,24 @@ Use **remainingBalance.js** to upload into Netsuite and deploy on vendor bills f
 The main function in **remainingBalance.js**  is calculateTotal() which displays the amount remaining for split vendor bills. 
 
 ### Understanding Basic Concepts
+All records and API's refrecnced below can be found under Resources. 
 
 #### Null Values:
 ```javascript
 // Ensure null values are not passed through
 if(nlapiGetRecordId() != null){
- ...do something
+ var lineItemCount = record.getLineItemCount('links'); 
 }
 ```
 Certain API's require record ID's to iniate -- this means a record would have to have been created for the script to function properlly. 
 If the user context is "create" and null values are not checked the script will error. 
 ```js
- calculateTotal(); // 	SSS_MISSING_REQD_ARGUMENT : id 
+ var lineItemCount = record.getLineItemCount('links'); // 	SSS_MISSING_REQD_ARGUMENT : id 
 ```
 
 #### Line Item Logic 
+
+
 ```js
 for(var i=1; i<lineItemCount+1; i++){
 		var type = record.getLineItemValue('links', 'type', i);
