@@ -13,3 +13,5 @@ Use **remainingBalance.js** to upload into Netsuite and deploy on vendor bills f
 
 ## Installing
 If logged in Netsuite as Admin, navigate to <b>Customizations>Scripting>Scripts:New</b>. Click the plus sign to upload and name your .js file (remainingBalance) then create a User Event type Script record. 
+
+The functions entry point is <b>before load</b> and should be depolyed on "Vendor Bills" with execution context as Admin.
