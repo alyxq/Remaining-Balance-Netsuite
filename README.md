@@ -21,10 +21,10 @@ if(nlapiGetRecordId() != null){
  ...do something
 }
 ```
-Certain API's require a record ID to iniate -- this means the a record  would have to have been created to function properlly. 
-If the user context is "create" and null values are not checked the script will error: 
+Certain API's require record ID's to iniate -- this means a record would have to have been created for the script to function properlly. 
+If the user context is "create" and null values are not checked the script will error. 
 ```js
- 
+ calculateTotal(); // 	SSS_MISSING_REQD_ARGUMENT : id 
 ```
 ## Installing
 If logged in Netsuite as Admin, navigate to <b>Customizations>Scripting>Scripts:New</b>. Click the plus sign to upload and name your .js file (remainingBalance) then create a User Event type Script record. 
