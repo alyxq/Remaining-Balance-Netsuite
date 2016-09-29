@@ -11,6 +11,15 @@ Use **remainingBalance.js** to upload into Netsuite and deploy on vendor bills f
 * [SuiteScript Objects](https://netsuite.custhelp.com/app/answers/detail/a_id/10285)
 
 
+## SuiteScript API Version 1.0 
+The main function in **remainingBalance.js**  is calculateTotal() which displays the amount remaining for split vendor bills. 
+
+Function call and setup:
+```javascript
+function calculateTotal(){
+	if(nlapiGetRecordId() != null){
+}
+```
 ## Installing
 If logged in Netsuite as Admin, navigate to <b>Customizations>Scripting>Scripts:New</b>. Click the plus sign to upload and name your .js file (remainingBalance) then create a User Event type Script record. 
 
