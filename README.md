@@ -26,6 +26,12 @@ If the user context is "create" and null values are not checked the script will 
 ```js
  calculateTotal(); // 	SSS_MISSING_REQD_ARGUMENT : id 
 ```
+
+### Line Item Logic 
+```js
+
+```
+
 ## Installing
 If logged in Netsuite as Admin, navigate to <b>Customizations>Scripting>Scripts:New</b>. Click the plus sign to upload and name your .js file (remainingBalance) then create a User Event type Script record. 
 
