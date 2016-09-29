@@ -17,7 +17,9 @@ The main function in **remainingBalance.js**  is calculateTotal() which displays
 Function call and setup:
 ```javascript
 function calculateTotal(){
-	if(nlapiGetRecordId() != null){
+// Ensure null values are not passed through
+	if(nlapiGetRecordId() != null){ 
+	
 	var record = nlapiLoadRecord(nlapiGetRecordType(), nlapiGetRecordId());
 	var lineItemCount = record.getLineItemCount('links'); 
 	console.log (lineItemCount);
