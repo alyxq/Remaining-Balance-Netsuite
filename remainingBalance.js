@@ -1,5 +1,5 @@
 //current version in SB2
-function remainingBalance(){
+function calculateTotal(){
 	if(nlapiGetRecordId() != null){
 	var record = nlapiLoadRecord(nlapiGetRecordType(), nlapiGetRecordId());
 	var lineItemCount = nlapiGetLineItemCount('links'); 
