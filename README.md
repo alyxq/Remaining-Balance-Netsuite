@@ -6,7 +6,7 @@ Use **remainingBalance.js** to upload into Netsuite and deploy on vendor bills f
 
 ## Resources
 * [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-* [API Overview](https://netsuite.custhelp.com/app/answers/detail/a_id/29241/kw/suitescript%201.0)<a><img src="https://system.netsuite.com/images/logos/netsuite-reskin.png" align="right" hspace="5" vspace="2"></a>
+* [API Overview](https://netsuite.custhelp.com/app/answers/detail/a_id/29241/kw/suitescript%201.0)<a><img src="https://system.netsuite.com/images/logos/netsuite-reskin.png" align="right" hspace="10" vspace="6"></a>
 * [API Reference (Suite Coder)](https://github.com/d3/d3/wiki)
 * [Record Broswer](https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_2/script/record/account.html)
 * [SuiteScript Objects](https://netsuite.custhelp.com/app/answers/detail/a_id/10285)
