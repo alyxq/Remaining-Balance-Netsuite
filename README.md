@@ -22,13 +22,15 @@ All records and API's refrecnced below can be found under Resources.
 ```javascript
 // Ensure null values are not passed through
 if(nlapiGetRecordId() != null){
+ var record = nlapiLoadRecord(nlapiGetRecordType(), nlapiGetRecordId());
  var lineItemCount = record.getLineItemCount('links'); 
 }
 ```
 Certain API's require record ID's to iniate -- this means a record would have to have been created for the script to function properlly. 
 If the user context is "create" and null values are not checked the script will error. 
 ```js
- var lineItemCount = record.getLineItemCount('links'); // 	SSS_MISSING_REQD_ARGUMENT : id 
+ var record = nlapiLoadRecord(nlapiGetRecordType(), nlapiGetRecordId());
+ var lineItemCount = record.getLineItemCount('links');                   // SSS_MISSING_REQD_ARGUMENT : id 
 ```
 
 #### Line Item Logic 
