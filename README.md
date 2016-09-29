@@ -46,7 +46,10 @@ Line items in Netsuite are presented as a list and require line# to be called on
 ###### For example, iterate through item list and display each item type:
 ```js
 function recType(){
+
+	var record = nlapiLoadRecord(nlapiGetRecordType(), nlpaiGetRecordId());
  	var lineItemCount = record.getLineItemCount('links')
+	
 	for(var i=1; i<lineItemCount+1; i++){
 		var type = record.getLineItemValue('links', 'type', i);
 		nlapiLogExecution('DEBUG', 'type', type);
