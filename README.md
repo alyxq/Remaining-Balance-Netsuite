@@ -27,7 +27,7 @@ if(nlapiGetRecordId() != null){
  var lineItemCount = record.getLineItemCount('links'); 
 }
 
-// 3 
+lineItemCount    // 3 
 ```
 Certain API's require record ID's to iniate -- this means a record would have to have been created for the script to function properlly. 
 If the user context is "create" and null values are not checked the script will error. 
@@ -45,13 +45,16 @@ Line items in Netsuite are presented as a list and require line# to be called on
 
 ###### For example, iterate through item list and display each item type:
 ```js
-
-for(var i=1; i<lineItemCount+1; i++){
+function recType(){
+	for(var i=1; i<lineItemCount+1; i++){
 		var type = record.getLineItemValue('links', 'type', i);
 		nlapiLogExecution('DEBUG', 'type', type);
 		console.log(type)
-  }
-  
+        }
+ } 
+
+recType();
+
   // Payment
   // Payment
   // Total
