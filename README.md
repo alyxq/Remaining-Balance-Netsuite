@@ -39,7 +39,7 @@ If the user context is "create" and null values are not checked the script will 
 ```
 
 #### Line Item Logic 
-Line items in Netsuite are presented as a list and require line# to be called on. To caputure the Line #, iterate through the item list by leveraging [For Loops](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for) in Javascript
+Line items in Netsuite are presented as a list and require line# to be called on. To caputure the Line #, iterate through the item list by leveraging [For Loops](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for) 
 
 
 
