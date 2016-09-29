@@ -1,30 +1,29 @@
+//current version in SB2
 function remainingBalance(){
 	if(nlapiGetRecordId() != null){
 	var record = nlapiLoadRecord(nlapiGetRecordType(), nlapiGetRecordId());
 	var lineItemCount = nlapiGetLineItemCount('links'); 
-	// var lineItemCount = record.getLineItemCount('links');
 	var remainingBalance = 0; 
-	nlapiLogExecution('DEBUG', 'lineItemCount', lineItemCount)
+	nlapiLogExecution('DEBUG', 'lineItemCount',  lineItemCount);
 
-		for(var i=1; i<=lineItemCount+1; i++){
+		for(var i=1; i<lineItemCount+1; i++){
 		var type = record.getLineItemValue('links', 'type', i);
 		nlapiLogExecution('DEBUG', 'type', type);
 		//console.log(type)
 
-		if(type!=null && type!="" && type=='Bill Payment'){
+		if(type=='Total'){
 			var lineAmount = record.getLineItemValue('links', 'total', i);
 			var headAmount = record.getFieldValue('usertotal')
-			var remainingBalance = (parseFloat(headAmount) -parseFloat(lineAmount));	// +parseFloat(remainingBalance)	
+			var remainingBalance = (parseFloat(headAmount) -parseFloat(lineAmount)) ;		
 			nlapiLogExecution('DEBUG', 'record', record);
 			//console.log(amount);
 			//console.log(remainingBalance);
 		}
 	 }
-	nlapiSetFieldValue('custbody_remain_balance', remainingBalance);
+	record.setFieldValue('custbody_remain_balance', remainingBalance);
 	nlapiSubmitRecord(record);
   }
 }
-
 /*DEBUG: CHROME CONSOLE
 
 function testIt(){
@@ -52,29 +51,3 @@ function testIt(){
 */
 
 
-//current version in SB2
-function remainingBalance(){
-	if(nlapiGetRecordId() != null){
-	var record = nlapiLoadRecord(nlapiGetRecordType(), nlapiGetRecordId());
-	var lineItemCount = nlapiGetLineItemCount('links'); 
-	var remainingBalance = 0; 
-	nlapiLogExecution('DEBUG', 'lineItemCount',  lineItemCount);
-
-		for(var i=1; i<lineItemCount+1; i++){
-		var type = record.getLineItemValue('links', 'type', i);
-		nlapiLogExecution('DEBUG', 'type', type);
-		//console.log(type)
-
-		if(type=='Total'){
-			var lineAmount = record.getLineItemValue('links', 'total', i);
-			var headAmount = record.getFieldValue('usertotal')
-			var remainingBalance = (parseFloat(headAmount) -parseFloat(lineAmount)) ;		
-			nlapiLogExecution('DEBUG', 'record', record);
-			//console.log(amount);
-			//console.log(remainingBalance);
-		}
-	 }
-	record.setFieldValue('custbody_remain_balance', remainingBalance);
-	nlapiSubmitRecord(record);
-  }
-}
