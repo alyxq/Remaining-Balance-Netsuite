@@ -25,12 +25,14 @@ if(nlapiGetRecordId() != null){
  var record = nlapiLoadRecord(nlapiGetRecordType(), nlapiGetRecordId());
  var lineItemCount = record.getLineItemCount('links'); 
 }
+// 3 
 ```
 Certain API's require record ID's to iniate -- this means a record would have to have been created for the script to function properlly. 
 If the user context is "create" and null values are not checked the script will error. 
 ```js
  var record = nlapiLoadRecord(nlapiGetRecordType(), nlapiGetRecordId());
- var lineItemCount = record.getLineItemCount('links');                   // SSS_MISSING_REQD_ARGUMENT : id 
+ var lineItemCount = record.getLineItemCount('links');                   
+ // SSS_MISSING_REQD_ARGUMENT : id 
 ```
 
 #### Line Item Logic 
@@ -47,6 +49,7 @@ for(var i=1; i<lineItemCount+1; i++){
 		console.log(type)
   }
   
+  // Payment
   // Payment
   // Total
 ```
