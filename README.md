@@ -19,7 +19,7 @@ The main function in **remainingBalance.js**  is calculateTotal() which displays
 All records and API's refrecnced below can be found under Resources. 
 
 #### Null Values:
-```javascript
+```node
 // Ensure null values are not passed through
 
 if(nlapiGetRecordId() != null){
@@ -58,8 +58,8 @@ function recType(){
 
 recType();
 
-  // Payment
-  // Payment
+  // Bill Payment
+  // Bill Payment
   // Total
 ```
 
