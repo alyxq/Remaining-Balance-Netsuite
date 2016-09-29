@@ -27,7 +27,7 @@ If the user context is "create" and null values are not checked the script will 
  calculateTotal(); // 	SSS_MISSING_REQD_ARGUMENT : id 
 ```
 
-### Line Item Logic 
+#### Line Item Logic 
 ```js
 
 ```
