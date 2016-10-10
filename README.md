@@ -66,5 +66,5 @@ recType();
 ## Installing
 If logged in Netsuite as Admin, navigate to <b>Customizations>Scripting>Scripts:New</b>. Click the plus sign to upload and name your .js file (remainingBalance) then create a User Event type Script record. 
 
-Create a custom Transaction Body Field in Netsuite. Navigate to <b>Customizations>List Records and Fields > Transaction Body Fields<b>
+Create a custom Transaction Body Field in Netsuite. Navigate to <b>Customizations>List Records & Fields > Transaction Body Fields</b>
 The functions entry point is <b>before load</b> and should be depolyed on "Vendor Bills" with execution context as Admin.
