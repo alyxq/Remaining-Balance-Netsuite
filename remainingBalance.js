@@ -1,6 +1,7 @@
 //current version in SB2
 function calculateTotal(){
-	var recType = nlapiGetRecordType();
+	
+var recType = nlapiGetRecordType();
 var recId = nlapiGetRecordId();
 
 function calculateBalance(){
