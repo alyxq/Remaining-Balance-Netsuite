@@ -1,29 +1,42 @@
 //current version in SB2
 function calculateTotal(){
-	if(nlapiGetRecordId() != null){
-	var record = nlapiLoadRecord(nlapiGetRecordType(), nlapiGetRecordId());
-	var lineItemCount = nlapiGetLineItemCount('links'); 
-	var remainingBalance = 0; 
-	nlapiLogExecution('DEBUG', 'lineItemCount',  lineItemCount);
+	var recType = nlapiGetRecordType();
+var recId = nlapiGetRecordId();
 
-		for(var i=1; i<lineItemCount+1; i++){
-		var type = record.getLineItemValue('links', 'type', i);
-		nlapiLogExecution('DEBUG', 'type', type);
-		//console.log(type)
+function calculateBalance(){
+	if(recId==null)return;
+		var record = nlapiLoadRecord(recType, recId);
+		var poamounts = [];
+		var remainingBalance = 0;
 
-		if(type=='Total'){
-			var lineAmount = record.getLineItemValue('links', 'total', i);
-			var headAmount = record.getFieldValue('usertotal')
-			var remainingBalance = (parseFloat(headAmount) -parseFloat(lineAmount)) ;		
-			nlapiLogExecution('DEBUG', 'record', record);
-			//console.log(amount);
-			//console.log(remainingBalance);
+		var poLineItemCount = record.getLineItemCount('purchaseorders');
+		var paymentCount = record.getLineItemCount('links');
+		var headerAmount = record.getFieldValue('usertotal');
+
+		//if (poLineItemCount>0){var test = 'give me a hell yes'};
+
+		for(var i=1; i<poLineItemCount+1; i++){
+			var poAmount = record.getLineItemValue('purchaseorders', 'poamount', i);
+			var poId = record.getLineItemValue('purchaseorders', 'poid', i);
+			
+			
+			if(paymentCount){
+				for(var j=1; j<paymentCount+1; j++){
+					var payType = record.getLineItemValue('links', 'type', j)					
+				
+					if(payType=='Total'){
+						var payAmount = record.getLineItemValue('links', 'total', j)
+						remainingBalance = parseFloat(poAmount)-parseFloat(payAmount)
+					}
+				}
+			}else{
+			    remainingBalance =parseFloat(poAmount) -parseFloat(headerAmount);
+			}
 		}
-	 }
-	record.setFieldValue('custbody_remain_balance', remainingBalance);
-	nlapiSubmitRecord(record);
-  }
-}
+		record.setFieldValue('custbody_remain_balance', remainingBalance)
+		nlapiSubmitRecord(record);
+	} 
+
 /*DEBUG: CHROME CONSOLE
 
 function testIt(){
