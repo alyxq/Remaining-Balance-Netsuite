@@ -3,6 +3,7 @@
 var recType = nlapiGetRecordType();
 var recId = nlapiGetRecordId();
 
+//User Event: Before Load
 function calculateBalance(){
 	
     if(recId ==null)return; 
@@ -54,7 +55,7 @@ function calculateBalance(){
     }
 }
 
-
+//User Event: After Submit
 function whenToRun(){
     rec = nlapiLoadRecord(nlapiGetRecordType(), nlapiGetRecordId());
     if(rec.getFieldValue('custbody_remain_balance')==null){
