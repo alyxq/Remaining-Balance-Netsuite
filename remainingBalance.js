@@ -18,8 +18,7 @@ function calculateBalance(){
 		for(var i=1; i<poLineItemCount+1; i++){
 			var poAmount = record.getLineItemValue('purchaseorders', 'poamount', i);
 			var poId = record.getLineItemValue('purchaseorders', 'poid', i);
-			
-			
+					
 			if(paymentCount){
 				for(var j=1; j<paymentCount+1; j++){
 					var payType = record.getLineItemValue('links', 'type', j)					
